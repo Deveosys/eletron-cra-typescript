@@ -1,0 +1,73 @@
+{
+    "name": "bookmark-parser",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "./",
+    "main": "public/electron.js",
+    "dependencies": {
+        "@types/jest": "24.0.18",
+        "@types/node": "12.7.5",
+        "@types/react": "16.9.2",
+        "@types/react-dom": "16.9.0",
+        "electron-is-dev": "^1.1.0",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "react-scripts": "3.1.1",
+        "typescript": "3.6.3"
+    },
+    "scripts": {
+        "start": "rescripts start",
+        "build": "rescripts build",
+        "test": "rescripts test",
+        "dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+        "predist": "yarn build",
+        "dist": "rm -rf dist/ && electron-builder",
+        "postinstall": "electron-builder install-app-deps"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@rescripts/cli": "^0.0.12",
+        "@rescripts/rescript-env": "^0.0.10",
+        "concurrently": "^4.1.2",
+        "cross-env": "^6.0.0",
+        "electron": "^6.0.9",
+        "electron-builder": "^21.2.0",
+        "electron-devtools-installer": "^2.2.4",
+        "wait-on": "^3.3.0"
+    },
+    "author": {
+        "name": "Deveosys",
+        "email": "contact@deveosys.com",
+        "url": "https://www.deveosys.com"
+    },
+    "build": {
+        "publish": false,
+        "appId": "com.acme.my-app",
+        "productName": "My App",
+        "copyright": "Copyright © 2019 ${author}",
+        "mac": {
+            "category": "public.app-category.utilities"
+        },
+        "files": [
+            "build/**/*",
+            "node_modules/**/*"
+        ],
+        "directories": {
+            "buildResources": "assets"
+        }
+    }
+}
